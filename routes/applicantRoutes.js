@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
+router.get("/", (req, res) => {
+  res.json({ message: "All applicants" });
+});
+
 // Route: POST /api/applicants/register
 router.post('/register', async (req, res) => {
   try {
