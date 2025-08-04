@@ -10,6 +10,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// ✅ Add this line
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
+
 // API Routes
 app.use('/api/applicants', applicantRoutes);
 
