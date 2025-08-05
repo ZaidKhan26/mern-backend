@@ -5,13 +5,13 @@ const Applicant = require('../models/Applicant');
 // POST: Submit new applicant
 router.post('/', async (req, res) => {
   try {
-    const { name, email, phone, skills, motivation } = req.body;
+    const { name, email, phone, college, skills, motivation } = req.body;
 
-    if (!name || !email || !phone || !skills || !motivation) {
+    if (!name || !email || !phone || !college || !skills || !motivation) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    const newApplicant = new Applicant({ name, email, phone, skills, motivation });
+    const newApplicant = new Applicant({ name, email, phone,college, skills, motivation });
     await newApplicant.save();
 
     res.status(201).json({ message: "Applicant registered successfully" });
